@@ -1,0 +1,57 @@
+# Kamila's dotfiles (github.com/anotherkamila/dotfiles)
+# .inputrc -- applies to everything that uses the readline lib
+
+set convert-meta on
+
+set editing-mode vi
+
+set bell-style none
+
+# show completion matches immediately
+set show-all-if-ambiguous on
+# show completion matches only if there is no partial completion
+set show-all-if-unmodified on
+# do not insert the completion text if it is already present
+set skip-completed-text on
+
+# cycle on \t
+"\t": menu-complete
+# shift-tab
+"\e[Z": menu-complete-backward
+
+# vi-mode visualization
+# only with patched readline
+set vi-command-prompt \001\033[1;37m\002{}\001\033[0m\002
+$if Python
+    set vi-command-prompt \001\033[1;37;41m\002>\001\033[0m\002{}
+$endif
+
+$if Bash
+    set expand-tilde off
+
+    # expands ! things (e.g. !:2 == 2nd argument of prev command, !* == all args,
+    # !-3$ == last arg of command 3 commands back...)
+    Space: magic-space
+$endif
+
+set match-hidden-files off
+set visible-stats on
+
+# expand glob patterns (e.g. *) without executing
+"\C-e": glob-expand-word
+
+"\C-l": clear-screen
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
+# command mode keybindings {{{
+set keymap vi-command
+
+# effectively before 'accept-line' switch to insert mode
+# this can be helpful in case of vi mode visualization
+"\n": "i\n"
+"\r": "i\r"
+# }}}
