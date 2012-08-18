@@ -75,7 +75,7 @@ function parse_scm { # {{{
 		echo " svn:r`svnversion | sed 's/M/\*/'`"
 	else
 		echo -n "$(__git_ps1 ' git:%s')"
-		git status >/dev/null 2>/dev/null && [[ `git status 2> /dev/null | tail -n1` != "nothing to commit (working directory clean)" ]] && echo -n "*"
+		[[ -n `__git_ps1` ]] && [[ `git status 2> /dev/null | tail -n1` != "nothing to commit (working directory clean)" ]] && echo -n "*"
 	fi
 } # }}}
 
@@ -159,7 +159,7 @@ export PROMPT_COMMAND="$PROMPT_COMMAND ; settitle $_CURRENT_TITLE"
 if [[ $EUID == 0 ]]; then
 	export PS1='\[\033[0;31m\]\h \w \$\[\033[0m\] '
 else
-	export PS1="\[\033[0;3${HOST_COLOR}m\]\u\[\033[0m\]@\[\033[0;3${HOST_COLOR}m\]\h\[\033[0;36m\] \w\[\033[0;31m\]$(parse_scm)\[\033[0m\] \$ "
+	export PS1="\[\033[0;3${HOST_COLOR}m\]\u\[\033[0m\]@\[\033[0;3${HOST_COLOR}m\]\h\[\033[0;36m\] \w\[\033[0;31m\]\$(parse_scm)\[\033[0m\] \$ "
 fi
 
 # }}}
