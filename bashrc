@@ -76,15 +76,6 @@ function parse_scm { # {{{
 	fi
 } # }}}
 
-# PS1 {{{
-
-if [[ $EUID == 0 ]]; then
-	export PS1='\[\033[0;31m\]\h \w \$\[\033[0m\] '
-else
-	export PS1='\[\033[0;34m\]\u\[\033[0m\]@\[\033[0;34m\]\h\[\033[0;36m\] \w\[\033[0;31m\]$(parse_scm)\[\033[0m\] \$ '
-fi
-# }}}
-
 # variables
 export PATH="$HOME/.gem/ruby/*/bin/:$PATH"
 #
@@ -123,7 +114,7 @@ alias shortps1="export PS1='\[\033[0;34m\]>\[\033[0m\] '"
 alias serveme='python3 -m http.server'
 alias icoffee='rlwrap coffee -i'
 
-. ~/.bash_aliases.local
+[[ -f ~/.bash_aliases.local ]] && . ~/.bash_aliases.local
 # }}}
 
 # functions {{{
@@ -155,5 +146,19 @@ function st {
 settitle "$USER@$HOSTNAME"
 
 export PROMPT_COMMAND="$PROMPT_COMMAND ; settitle $_CURRENT_TITLE"
+
+[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
+
+# PS1 {{{
+
+[[ -z $HOST_COLOR ]] && HOST_COLOR='8'
+
+if [[ $EUID == 0 ]]; then
+	export PS1='\[\033[0;31m\]\h \w \$\[\033[0m\] '
+else
+	export PS1="\[\033[0;3${HOST_COLOR}m\]\u\[\033[0m\]@\[\033[0;3${HOST_COLOR}m\]\h\[\033[0;36m\] \w\[\033[0;31m\]$(parse_scm)\[\033[0m\] \$ "
+fi
+
+# }}}
 
 # vim: set noet ts=8 sw=8 fdm=marker fdl=99:
