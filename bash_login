@@ -1,0 +1,4 @@
+# ~/.bash_login
+COW_FILE="`ls /usr/share/cows | sort -R | head -n1`"
+COW_MODE="-`echo b d g p s t w y | sort -R | cut -d' ' -f1`"
+cowsay $COW_MODE -f $COW_FILE $(fortune)

@@ -1,4 +1,4 @@
-# Kamila's dotfiles (github.com/anotherkamila/dotfiles)
+# Kamila's dotfiles (http://github.com/anotherkamila/dotfiles)
 # .inputrc -- applies to everything that uses the readline lib
 
 set convert-meta on
@@ -16,7 +16,7 @@ set skip-completed-text on
 
 # cycle on \t
 "\t": menu-complete
-# shift-tab
+# backward cycle on shift+tab
 "\e[Z": menu-complete-backward
 
 # vi-mode visualization
@@ -55,3 +55,5 @@ set keymap vi-command
 "\n": "i\n"
 "\r": "i\r"
 # }}}
+
+# vim: set noet ts=8 sw=8 fdm=marker fdl=99:
