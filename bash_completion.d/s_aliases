@@ -1,5 +1,6 @@
 # Kamila's dotfiles (http://github.com/anotherkamila/dotfiles)
 # completion for my `s` and `sn` aliases
 
+. /usr/share/bash-completion/completions/ssh
 complete -F _ssh s
 complete -F _ssh sn

@@ -40,7 +40,10 @@ shopt -s no_empty_cmd_completion
 shopt -s globstar
 
 # add my completion
-[[ -d ~/.bash_completion.d ]] && source ~/.bash_completion.d/*
+if [[ -d ~/.bash_completion.d ]] ; then
+	. /usr/share/bash-completion/bash_completion
+	for f in ~/.bash_completion.d/* ; do . $f ; done
+fi
 
 # }}}
 
