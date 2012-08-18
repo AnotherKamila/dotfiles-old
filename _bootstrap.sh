@@ -9,6 +9,7 @@ for F in * ; do
 
 #cat << EOF
     rm -rf ~/.$F
+    echo "$F"
     ln -s "$(readlink -f $F)" "$(readlink -f ~/.$F)"
 #EOF
 done
