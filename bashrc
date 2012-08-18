@@ -16,7 +16,7 @@ shopt -s histappend
 # avoid having duplicate entries in history
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}erasedups:ignoredups
 # write stuff immediately (@multiple terminals problem); + set term title
-export PROMPT_COMMAND="history -a ; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a"
 # Ignore some controlling instructions
 # HISTIGNORE is a colon-delimited list of patterns which should be excluded.
 # The '&' is a special pattern which suppresses duplicate entries.
@@ -38,6 +38,9 @@ shopt -s no_empty_cmd_completion
 
 # recursively search the tree when ** is specified
 shopt -s globstar
+
+# add my completion
+[[ -d ~/.bash_completion.d ]] && source ~/.bash_completion.d/*
 
 # }}}
 
@@ -134,8 +137,6 @@ function sn { # new screen
 	export TERM=rxvt # I don't like "unknown terminal type"
 	ssh -t "$1" screen
 }
-complete -F _ssh s  # ^^
-complete -F _ssh sn
 
 # set terminal title
 function settitle { # does not work for screen (yet -- this is a TODO)

@@ -1,0 +1,5 @@
+# Kamila's dotfiles (http://github.com/anotherkamila/dotfiles)
+# completion for my `s` and `sn` aliases
+
+complete -F _ssh s
+complete -F _ssh sn
