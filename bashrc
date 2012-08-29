@@ -70,6 +70,7 @@ umask 077
 
 # }}}
 
+. /usr/share/git/git-prompt.sh  # __git_ps1 was moved here
 function parse_scm { # {{{
 	if [[ -d .svn ]] ; then
 		echo " svn:r`svnversion | sed 's/M/\*/'`"
