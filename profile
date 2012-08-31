@@ -12,6 +12,7 @@ export PATH="~/bin/:~/.config/bin/:$PATH"
 if [[ -n "$DISPLAY" ]]; then
     export EDITOR='subl -n'
 	export BROWSER='chromium'
+    export GIT_EDITOR='vim'  # faster to load than ST
 else
     export EDITOR='vim'
 	export BROWSER='elinks'
