@@ -81,7 +81,7 @@ function parse_scm { # {{{
 } # }}}
 
 # variables
-export PATH="$HOME/.gem/ruby/*/bin/:$PATH"
+export PATH="$HOME/.gem/ruby/1.9.1/bin/:$PATH"
 #
 
 # aliases {{{
