@@ -145,18 +145,16 @@ function st {
 	${scm%:*} status
 }
 
-# open ST2 with the project for the current branch of this git repo :D
+# open ST2 with the correct project
 function p {
 	PATH_TO_ST_PROJECTS='~/.config/sublime-text-2/Projects/'; PROJECT_EXT='.sublime-project'
 	REPO="${PWD#~/projects/}"
-	BRANCH="`__git_ps1 "%s"`"
-	if [[ -f "$PATH_TO_ST_PROJECTS/$REPO/$BRANCH" ]]; then
-		FILE="$PATH_TO_ST_PROJECTS/$REPO/$BRANCH$PROJECT_EXT"
+	FILE="$PATH_TO_ST_PROJECTS/$REPO$PROJECT_EXT"
+	if [[ -f "$FILE" ]]; then
+		subl --project "$FILE"
 	else
-		FILE="$PATH_TO_ST_PROJECTS/$REPO/master$PROJECT_EXT"
+		subl -n .
 	fi
-
-	subl --project "$FILE"
 }
 
 # }}}
