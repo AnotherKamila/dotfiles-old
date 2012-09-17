@@ -111,7 +111,7 @@ alias se='sudo $EDITOR'
 
 alias mkdir='mkdir -p'
 
-[[ -n `which trash` ]] && alias rm='trash' # because I am an idiot
+[[ -n `which trash 2>/dev/null` ]] && alias rm='trash' # because I am an idiot
 
 alias shortps1="export PS1='\[\033[0;34m\]>\[\033[0m\] '"
 
