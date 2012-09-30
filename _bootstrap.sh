@@ -1,15 +1,18 @@
 #!/bin/bash
 
-EXCLUDE='README.md _*'
+EXCLUDE="README.md .git/ `basename $0`"
 
-for F in * ; do
-    SKIP=0
-    for pattern in $EXCLUDE ; do [[ $F == $pattern ]] && SKIP=1 ; done
-    [[ $SKIP == 1 ]] && continue
+if [[ $(readlink -f $PWD) != $(readlink -f `dirname $0`) ]] ; then
+	echo "This script must be run from the dotfiles dir (`dirname $0`)."
+	exit 1
+fi
 
-#cat << EOF
-    rm -rf ~/.$F
-    echo "$F"
-    ln -s "$(readlink -f $F)" "$(readlink -f ~/.$F)"
-#EOF
+REAL_EXCLUDE="${EXCLUDE// /\|}"
+
+for F in $(find . -type f -printf '%P\n' | grep -v -e "^$REAL_EXCLUDE") ; do
+	echo -n "$F"
+	SF="`readlink -m $F`" ; TF="$HOME/$F"
+	rm -f "$TF" ; mkdir -p "`dirname $TF`"
+	ln -s "$SF" "$TF"
+	echo ' ✔'
 done
