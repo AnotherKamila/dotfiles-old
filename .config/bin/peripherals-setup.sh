@@ -7,12 +7,17 @@ setxkbmap -option compose:menu
 [[ -f $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap 
 
 # touchpad
-synclient VertEdgeScroll=0 HorizEdgeScroll=0\
-		  VertTwoFingerScroll=1 HorizTwoFingerScroll=1\
-		  EdgeMotionUseAlways=1\
-		  TapButton1=1\
-		  PalmDetect=1\
-		  CircularScrolling=0
+synclient VertEdgeScroll=0 HorizEdgeScroll=0 \
+		  CircularScrolling=0 \
+		  VertTwoFingerScroll=1 HorizTwoFingerScroll=1 \
+		  VertScrollDelta=130 HorizScrollDelta=130 \
+		  CoastingSpeed=16 CoastingFriction=30 \
+		  EdgeMotionUseAlways=1 \
+		  TapButton1=1 \
+		  PalmDetect=1 \
+
+# "natural scrolling"
+xinput set-button-map 'SynPS/2 Synaptics TouchPad' 1 2 3 5 4 7 6
 
 # touchscreen-helper &
 # twofing --click=second &
