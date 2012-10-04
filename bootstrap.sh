@@ -12,7 +12,6 @@ REAL_EXCLUDE="${EXCLUDE// /\|}"
 for F in $(find . -type f -printf '%P\n' | grep -v -e "^$REAL_EXCLUDE") ; do
 	echo -n "$F"
 	SF="`readlink -m $F`" ; TF="$HOME/$F"
-	rm -f "$TF" ; mkdir -p "`dirname $TF`"
-	ln -s "$SF" "$TF"
-	echo ' ✔'
+	rm -f "$TF" && mkdir -p "`dirname $TF`" && ln -s "$SF" "$TF"
+	if [[ -n $? ]]; then echo ' ✘' ; else echo ' ✔' ; fi
 done
