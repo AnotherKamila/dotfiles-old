@@ -1,0 +1,3 @@
+remove Lock = Caps_Lock
+! this key is/will be mapped to different things in different apps
+keycode 66 = XF86LaunchB
