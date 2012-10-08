@@ -4,3 +4,9 @@
 
 exec ~/.config/bin/peripherals.sh
 exec ~/.config/bin/lockscreen.sh
+
+# a neater notification daemon
+twmnd &
+
+# automounting daemon
+udisksvm &
