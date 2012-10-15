@@ -9,6 +9,9 @@
 # source my env vars
 . ~/.profile
 
+# correctly display non-ascii characters in ssh
+LC_CTYPE='en_US.UTF-8'
+
 # history stuff {{{
 
 # append to history file instead of overwriting
