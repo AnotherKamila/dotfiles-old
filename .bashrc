@@ -101,8 +101,7 @@ alias lld='ls -ld'
 
 #alias ..='cd ..'
 
-alias sudo='sudo -E'
-alias su="sudo $SHELL"
+alias su="sudo -s"
 
 alias e=' $EDITOR'
 alias ce='subl'
