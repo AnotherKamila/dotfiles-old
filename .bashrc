@@ -10,7 +10,7 @@
 . ~/.profile
 
 # correctly display non-ascii characters in ssh
-LC_CTYPE=en_US.utf8
+LC_CTYPE='en_US.UTF-8'
 
 # history stuff {{{
 
