@@ -120,6 +120,8 @@ alias shortps1="export PS1='\[\033[0;34m\]>\[\033[0m\] '"
 alias serveme='python3 -m http.server'
 alias icoffee='rlwrap coffee -i'
 
+alias pasteit="curl -F 'sprunge=<-' http://sprunge.us | tr -d ' ' | xsel -i"
+
 [[ -f ~/.bash_aliases.local ]] && . ~/.bash_aliases.local
 # }}}
 
