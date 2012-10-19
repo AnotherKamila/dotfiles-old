@@ -128,14 +128,16 @@ alias pasteit="curl -F 'sprunge=<-' http://sprunge.us | tr -d ' ' | xsel -i"
 # functions {{{
 
 # ssh with screen on the remote machine
-function s { # reattaches to the last screen if any
+function sshs { # reattaches to the last screen if any
 	export TERM=rxvt # I don't like "unknown terminal type"
 	ssh -t "$1" screen -RR
 }
-function sn { # new screen
+function sshn { # new screen
 	export TERM=rxvt # I don't like "unknown terminal type"
 	ssh -t "$1" screen
 }
+
+alias s='mosh'  # and the mosh awesomeness gets s
 
 # set terminal title
 function settitle { # does not work for screen (yet -- this is a TODO)
