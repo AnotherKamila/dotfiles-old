@@ -1,0 +1,192 @@
+# i3 config file (v4)
+
+set $m Mod4
+
+# --- variables ---
+#set $term i3-sensible-terminal
+set $term urxvtc
+set $file_manager rox
+set $launcher synapse
+set $browser chromium
+set $music_player music_player.sh
+
+# --- appearance ---
+font -*-terminus-medium-*-*-*-*-120-72-72-*-*-iso10646-*
+
+# --- defaults ---
+
+default_orientation vertical
+workspace_layout tabbed
+new_window 1pixel
+
+focus_follows_mouse yes
+
+# --- for-window settings ---
+for_window [title="synapse"] floating enable; border none; hide_edge_borders both
+for_window [window_role="browser"] border none
+
+assign [class="Gimp"] → gimp
+bindsym $m+g workspace gimp
+bindsym $m+Shift+g move container to workspace gimp
+for_window [title="GIMP Startup"] move to workspace gimp
+for_window [window_role="gimp-toolbox"] floating disable; move right; move right
+for_window [window_role="gimp-dock"] floating disable; move left
+
+for_window [title="xfce4-notifyd"] floating enable
+
+# --- i3bar ---
+bar {
+    status_command i3status
+    position top
+    tray_output primary
+    colors {
+        background #002b36
+        statusline #839496
+    }
+}
+
+# --- windows ---
+floating_modifier $m
+
+
+
+# --- workspaces ---
+bindsym $m+1 workspace number 1
+bindsym $m+2 workspace number 2
+bindsym $m+3 workspace number 3
+bindsym $m+4 workspace number 4
+bindsym $m+5 workspace number 5
+bindsym $m+6 workspace number 6
+bindsym $m+7 workspace number 7
+bindsym $m+8 workspace number 8
+bindsym $m+9 workspace number 9
+bindsym $m+0 workspace number 10
+
+bindsym $m+Shift+1 move container to workspace number 1
+bindsym $m+Shift+2 move container to workspace number 2
+bindsym $m+Shift+3 move container to workspace number 3
+bindsym $m+Shift+4 move container to workspace number 4
+bindsym $m+Shift+5 move container to workspace number 5
+bindsym $m+Shift+6 move container to workspace number 6
+bindsym $m+Shift+7 move container to workspace number 7
+bindsym $m+Shift+8 move container to workspace number 8
+bindsym $m+Shift+9 move container to workspace number 9
+bindsym $m+Shift+0 move container to workspace number 10
+
+bindsym $m+Shift+plus move scratchpad
+bindsym $m+equal scratchpad show
+
+bindsym $m+space workspace ⌂
+bindsym $m+Shift+space move container to workspace ⌂
+
+bindsym $m+w workspace www; exec sh -c "pgrep $browser || $browser"
+bindsym $m+Shift+w move container to workspace www
+
+bindsym $m+m workspace music; exec $music_player
+bindsym $m+Shift+m move container to workspace music
+
+bindsym $m+Right workspace next_on_output
+bindsym	$m+Shift+Right move container to workspace next_on_output
+bindsym $m+Left workspace prev_on_output
+bindsym $m+Shift+Left move container to workspace prev_on_output
+
+bindsym $m+Multi_key workspace back_and_forth
+
+bindsym $m+F7 move workspace to output right
+
+bindsym $m+Shift+Multi_key exec 
+
+# --- window management keybindings ---
+
+bindsym $m+minus split h
+bindsym $m+slash split v
+
+bindsym $m+s layout stacking
+bindsym $m+t layout tabbed
+bindsym $m+e layout toggle split
+bindsym $m+x layout toggle all
+
+bindsym $m+f fullscreen
+
+bindsym $m+F11 focus output 1
+bindsym $m+F12 focus output 2
+
+bindsym $m+Shift+asciitilde floating toggle
+bindsym $m+asciitilde focus mode_toggle
+
+bindsym $m+a focus parent
+bindsym $m+v focus child
+
+set $movemouse "sh -c 'eval `xdotool getactivewindow getwindowgeometry --shell`; xdotool mousemove $((X+WIDTH/2)) $((Y+HEIGHT/2))'"
+bindsym $m+h focus left; exec $movemouse
+bindsym $m+j focus down; exec $movemouse
+bindsym $m+k focus up; exec $movemouse
+bindsym $m+l focus right; exec $movemouse
+
+bindsym $m+Shift+h move left; exec $movemouse
+bindsym $m+Shift+j move down; exec $movemouse
+bindsym $m+Shift+k move up; exec $movemouse
+bindsym $m+Shift+l move right; exec $movemouse
+
+bindsym $m+Shift+q kill
+
+mode "resize" {
+    bindsym h           resize shrink width 10 px or 10 ppt
+    bindsym j           resize grow height 10 px or 10 ppt
+    bindsym k           resize shrink height 10 px or 10 ppt
+    bindsym l   resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $m+r mode "resize"
+
+# caps lock is remapped to this in .Xmodmap
+set $mkey XF86LaunchB
+mode "command" {
+    set $exit_command_mode mode "default" ; exec $movemouse
+
+    bindsym $mkey workspace back_and_forth ; $exit_command_mode
+    bindsym Tab workspace back_and_forth
+
+    bindsym semicolon exec i3-input -P 'Go to mark: ' -F '[con_mark="%s"] focus' -l 1 ; $exit_command_mode
+    bindsym m exec i3-input -P 'Mark window: ' -F 'mark "%s"' -l 1
+
+    bindsym h focus left
+    bindsym j focus down
+    bindsym k focus up
+    bindsym l focus right
+
+    bindsym Shift+h move left
+    bindsym Shift+j move down
+    bindsym Shift+k move up
+    bindsym Shift+l move right
+
+
+    bindsym Return $exit_command_mode
+    bindsym Escape $exit_command_mode
+    bindsym space $exit_command_mode
+}
+bindsym $mkey mode "command"
+
+bindsym $m+Shift+quotedbl exec i3-input -P 'Mark window: ' -F 'mark "%s"' -l 1
+bindsym $m+apostrophe exec i3-input -P 'Go to mark: ' -F '[con_mark="%s"] focus' -l 1
+
+# --- other essential keybindings ---
+
+bindsym $m+Return exec $term
+bindsym $m+Escape exec --no-startup-id $launcher
+bindsym $m+BackSpace exec $file_manager
+
+bindsym $m+Shift+Escape exec i3-input -P 'WM command: '
+
+bindsym $m+Shift+c reload
+bindsym $m+Shift+r restart
+#bindsym $m+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $m+Shift+e exit
+
+
+# --- startup pgrograms ---
+exec compton -CGf -i0.8 -e0.9 -b
+exec ~/.config/bin/after_session_start.sh
+exec synapse -s
