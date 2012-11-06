@@ -24,9 +24,10 @@ xset fp rehash
 
 source ~/.xsession
 
-if [[ -z "$1" ]]; then SESSION="i3"
-else SESSION="$1"
-fi
+#if [[ -z "$1" ]]; then SESSION="i3"
+#else SESSION="$1"
+#fi
+SESSION=i3
 
 if [[ $SESSION == 'enlightenment' ]]; then SESSION='enlightenment_start'; fi
 exec $SESSION > .config/wm.log 2> .config/wm_errors.log
