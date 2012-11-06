@@ -2,8 +2,8 @@
 
 # ~/.config/bin/after_session_start.sh
 
-exec ~/.config/bin/peripherals.sh
-exec ~/.config/bin/lockscreen.sh
+~/.config/bin/peripherals.sh &
+~/.config/bin/lockscreen.sh &
 
 # a neater notification daemon
 twmnd &

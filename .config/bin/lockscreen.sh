@@ -1,7 +1,7 @@
 #!/bin/bash
 # ~/.config/bin/lockscreen.sh
 
-TIME=2  # min
+TIME=5  # min
 LOCKER='i3lock -u -c 000000'
 
 xautolock -time $TIME -locker "$LOCKER" -detectsleep

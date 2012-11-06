@@ -1,0 +1,46 @@
+# MPD configuration file
+
+music_directory		"~/media/music"
+playlist_directory	"~/media/music/_playlists/"
+db_file			"~/.mpd/mpd.db"
+log_file		"~/.mpd/mpd.log"
+state_file		"~/.mpd/mpdstate"
+sticker_file		"~/.mpd/sticker.sql"
+bind_to_address		"0.0.0.0"
+#bind_to_address	"~/.mpd/socket"
+port			"6600"
+gapless_mp3_playback	"yes"
+save_absolute_paths_in_playlists    "no"
+metadata_to_use		"artist,album,title,track,name,genre,date,composer,performer,disc"
+auto_update		"yes"
+follow_outside_symlinks	"yes"
+follow_inside_symlinks	"yes"
+
+restore_paused		"yes"
+
+input {
+	plugin "curl"
+}
+
+audio_output {
+	type        "alsa"
+	name        "My Awesome Speakers"
+}
+
+audio_output {
+	type        "httpd"
+	name        "OGG HTTP stream (port 8600)"
+	encoder     "vorbis"
+	port        "8600"
+	quality     "7.0"
+	format      "44100:16:1"
+}
+
+audio_output {
+	type        "httpd"
+	name        "MP3 HTTP stream (port 8601)"
+	encoder     "lame"
+	port        "8601"
+	bitrate     "320"
+	format      "44100:16:1"
+}
