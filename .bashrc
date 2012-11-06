@@ -48,12 +48,12 @@ if [[ -d ~/.bash_completion.d ]] ; then
 	for f in ~/.bash_completion.d/* ; do . $f ; done
 fi
 
+# command not found hook from pkgfile
+[[ -r /usr/share/doc/pkgfile/command-not-found.bash ]] && . /usr/share/doc/pkgfile/command-not-found.bash
+
 # }}}
 
 # various other options {{{
-
-# vi-like command-line editing
-set -o vi
 
 # /some/path without a command runs a cd /some/path
 shopt -s autocd
@@ -91,10 +91,13 @@ export PATH="$HOME/.gem/ruby/1.9.1/bin/:$PATH"
 
 alias ls='ls -hC --color=auto'
 alias grep='grep --color=auto'
+which colordiff &>/dev/null && alias diff=colordiff
 
 alias df='df -h'
 alias du='du -h'
 alias free='free -m'
+
+alias psc='ps xawf -eo pid,user,cgroup,args'
 
 alias l='ls'
 alias ll='ls -l'
@@ -118,9 +121,16 @@ alias mkdir='mkdir -p'
 alias shortps1="export PS1='\[\033[0;34m\]>\[\033[0m\] '"
 
 alias serveme='python3 -m http.server'
+
 alias icoffee='rlwrap coffee -i'
 
 alias pasteit="curl -F 'sprunge=<-' http://sprunge.us | tr -d ' ' | xsel -i"
+
+alias pac="sudo pacmatic"
+alias aur="raury"
+alias aurs="raury -Ss"
+
+alias o="xdg-open"  # a symlink to rox anyway :D
 
 [[ -f ~/.bash_aliases.local ]] && . ~/.bash_aliases.local
 # }}}
@@ -141,8 +151,10 @@ alias s='mosh'  # and the mosh awesomeness gets s
 
 # set terminal title
 function settitle { # does not work for screen (yet -- this is a TODO)
-	_CURRENT_TITLE="$@"
-	printf \\033]0\;\%s\\007 "$@"
+	if [[ $TERM == urxvt ]]; then
+		_CURRENT_TITLE="$@"
+		printf \\033]0\;\%s\\007 "$@"
+	fi
 }
 
 # a "multi-alias" for svn or git status
@@ -167,19 +179,15 @@ function p {
 
 settitle "$USER@$HOSTNAME"
 
-export PROMPT_COMMAND="$PROMPT_COMMAND ; settitle $_CURRENT_TITLE"
+export PROMPT_COMMAND="$PROMPT_COMMAND ; settitle \$_CURRENT_TITLE"
 
 [[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
 
-# PS1 {{{
+# prompt {{{
 
-[[ -z $HOST_COLOR ]] && HOST_COLOR='8'
+[[ -z $HOST_COLOR ]] && HOST_COLOR="$((${#HOSTNAME}%6 + 2))"  # works perfectly for like 5 machines, this is the best "hash" function ever :D
 
-if [[ $EUID == 0 ]]; then
-	export PS1='\[\033[0;31m\]\h \w \$\[\033[0m\] '
-else
-	export PS1="\[\033[0;3${HOST_COLOR}m\]\u\[\033[0m\]@\[\033[0;3${HOST_COLOR}m\]\h\[\033[0;36m\] \w\[\033[0;31m\]\$(parse_scm)\[\033[0m\] \$ "
-fi
+export PS1='$(R=$? ; [[ $R != 0 ]] && echo -n "\[\033[0;33m\]?$R ")\[\033[0;3${HOST_COLOR}m\]\u\[\033[0m\]@\[\033[0;3${HOST_COLOR}m\]\h\[\033[0;36m\] \w\[\033[0;31m\]$(parse_scm)\[\033[0m\] \$ '
 
 # }}}
 
