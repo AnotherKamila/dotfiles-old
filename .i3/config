@@ -28,9 +28,8 @@ for_window [window_role="browser"] border none
 assign [class="Gimp"] → gimp
 bindsym $m+g workspace gimp
 bindsym $m+Shift+g move container to workspace gimp
-for_window [title="GIMP Startup"] move to workspace gimp
-for_window [window_role="gimp-toolbox"] floating disable; move right; move right
-for_window [window_role="gimp-dock"] floating disable; move left
+#for_window [window_role="gimp-toolbox"] floating disable; move right; move right
+#for_window [window_role="gimp-dock"] floating disable; move left
 
 for_window [title="xfce4-notifyd"] floating enable
 
@@ -90,11 +89,7 @@ bindsym	$m+Shift+Right move container to workspace next_on_output
 bindsym $m+Left workspace prev_on_output
 bindsym $m+Shift+Left move container to workspace prev_on_output
 
-bindsym $m+Multi_key workspace back_and_forth
-
 bindsym $m+F7 move workspace to output right
-
-bindsym $m+Shift+Multi_key exec 
 
 # --- window management keybindings ---
 
