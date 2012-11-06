@@ -1,3 +1,6 @@
 remove Lock = Caps_Lock
 ! this key is/will be mapped to different things in different apps
 keycode 66 = XF86LaunchB
+
+! set compose key to print (it is where the menu key usually is on my keyboard (!))
+keycode 107 = Multi_key
