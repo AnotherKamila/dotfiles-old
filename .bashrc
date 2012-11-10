@@ -79,7 +79,7 @@ function parse_scm { # {{{
 		echo " svn:r`svnversion | sed 's/M/\*/'`"
 	else
 		echo -n "$(__git_ps1 ' git:%s')"
-		[[ -n `__git_ps1` ]] && [[ `git status 2> /dev/null | tail -n1` != "nothing to commit (working directory clean)" ]] && echo -n "*"
+		[[ -n `__git_ps1` ]] && [[ `git status 2> /dev/null | tail -n1` != "nothing to commit, working directory clean" ]] && echo -n "*"
 	fi
 } # }}}
 
