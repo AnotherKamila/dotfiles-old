@@ -137,32 +137,7 @@ mode "resize" {
 bindsym $m+r mode "resize"
 
 # caps lock is remapped to this in .Xmodmap
-set $mkey XF86LaunchB
-mode "command" {
-    set $exit_command_mode mode "default" ; exec $movemouse
-
-    bindsym $mkey workspace back_and_forth ; $exit_command_mode
-    bindsym Tab workspace back_and_forth
-
-    bindsym semicolon exec i3-input -P 'Go to mark: ' -F '[con_mark="%s"] focus' -l 1 ; $exit_command_mode
-    bindsym m exec i3-input -P 'Mark window: ' -F 'mark "%s"' -l 1
-
-    bindsym h focus left
-    bindsym j focus down
-    bindsym k focus up
-    bindsym l focus right
-
-    bindsym Shift+h move left
-    bindsym Shift+j move down
-    bindsym Shift+k move up
-    bindsym Shift+l move right
-
-
-    bindsym Return $exit_command_mode
-    bindsym Escape $exit_command_mode
-    bindsym space $exit_command_mode
-}
-bindsym $mkey mode "command"
+bindsym XF86LaunchB workspace back_and_forth
 
 bindsym $m+Shift+quotedbl exec i3-input -P 'Mark window: ' -F 'mark "%s"' -l 1
 bindsym $m+apostrophe exec i3-input -P 'Go to mark: ' -F '[con_mark="%s"] focus' -l 1
