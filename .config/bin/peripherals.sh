@@ -4,7 +4,7 @@
 
 # keyboard
 setxkbmap -option compose:menu
-[[ -f $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap 
+[[ -f $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap
 
 # touchpad
 synclient VertEdgeScroll=0 HorizEdgeScroll=0 \
@@ -23,7 +23,7 @@ xinput set-button-map 'SynPS/2 Synaptics TouchPad' 1 2 3 5 4 7 6
 # twofing --click=second &
 
 # trackpad
-TRACKPAD_ID=`xinput list | grep 'ThinkPad USB Keyboard with TrackPoint' | grep pointer | cut -f2 | cut -f2 -d'='`
+TRACKPAD_ID=`xinput list | grep 'TrackPoint' | grep pointer | cut -f2 | cut -f2 -d'='`
 if [[ -n $TRACKPAD_ID ]]; then
 	xinput set-int-prop $TRACKPAD_ID "Evdev Wheel Emulation Axes" 8 6 7 4 5
 	xinput set-int-prop $TRACKPAD_ID "Evdev Wheel Emulation Button" 8 2
