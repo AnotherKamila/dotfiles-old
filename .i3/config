@@ -12,6 +12,10 @@ set $music_player music_player.sh
 
 # --- appearance ---
 font -*-terminus-medium-*-*-*-*-120-72-72-*-*-iso10646-*
+client.focused   #002b36 #002b36 #268bd2
+client.focused_inactive #073642 #073642 #93a1a1
+client.unfocused #073642 #073642 #586e75
+client.urgent  #d33682 #073642 #d33682
 
 # --- defaults ---
 
