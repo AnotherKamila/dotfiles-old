@@ -2,10 +2,9 @@
 # ~/.config/bin/lockscreen.sh
 
 TIME=5  # min
-LOCKER='i3lock -u -c 000000'
+# LOCKER="i3lock -u -c 000000 -i ~/lockscreen.png"
+LOCKER="bash -c 'xdotool mousemove_relative 50 -50 && i3lock -u -c 000000 -i ~/lockscreen.png'"
 
-xautolock -time $TIME -locker "$LOCKER" -detectsleep
+xautolock -time $TIME -locker "$LOCKER" -detectsleep -corners 00+- -cornerdelay 1 &
 
-# the following is used because toggle didn't work for me
-xdotool behave_screen_edge --delay 1000 top-left  exec xautolock -locknow
-xdotool behave_screen_edge --delay 1000 top-right exec xautolock -toggle
+echo "xautolock active, timeout ${TIME}min"
