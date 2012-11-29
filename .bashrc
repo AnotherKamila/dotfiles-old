@@ -124,7 +124,11 @@ alias serveme='python3 -m http.server'
 
 alias icoffee='rlwrap coffee -i'
 
-alias pasteit="curl -F 'sprunge=<-' http://sprunge.us | tr -d ' ' | xsel -i"
+if [[ -n $DISPLAY ]]; then
+	alias pasteit="curl -F 'sprunge=<-' http://sprunge.us | tr -d ' ' | xsel -i"
+else
+	alias pasteit="curl -F 'sprunge=<-' http://sprunge.us | tr -d ' '"
+fi
 
 alias pac="sudo pacmatic"
 alias aur="raury"
