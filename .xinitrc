@@ -22,14 +22,15 @@ export GNOME_KEYRING_CONTROL SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_PID
 xset +fp /usr/share/fonts/local/
 xset fp rehash
 
-source ~/.xsession
+# restore background
+eval $(cat ~/.fehbg)
 
 #if [[ -z "$1" ]]; then SESSION="i3"
 #else SESSION="$1"
 #fi
 SESSION=i3
 
-if [[ $SESSION == 'enlightenment' ]]; then SESSION='enlightenment_start'; fi
+[[ $SESSION == 'enlightenment' ]] && SESSION='enlightenment_start'
 exec $SESSION > .config/wm.log 2> .config/wm_errors.log
 
 kill $GNOME_KEYRING_PID
