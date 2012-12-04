@@ -13,7 +13,10 @@ synclient VertEdgeScroll=0 HorizEdgeScroll=0 \
 		  VertScrollDelta=130 HorizScrollDelta=130 \
 		  CoastingSpeed=16 CoastingFriction=30 \
 		  EdgeMotionUseAlways=1 \
-		  TapButton1=1 \
+		  ClickPad=1 \
+		  TapButton1=1 TapButton2=2 TapButton3=3 \
+		  ClickFinger1=1 ClickFinger2=3 ClickFinger3=2 \
+		  RightButtonAreaLeft=5000 \
 		  PalmDetect=1 \
 
 # "natural scrolling"
