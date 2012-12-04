@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ~/.config/bin/after_session_start.sh
+# ~/.config/bin/after_session_startup.sh
 
 ~/.config/bin/peripherals.sh &
 ~/.config/bin/lockscreen.sh &
