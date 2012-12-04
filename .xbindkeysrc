@@ -1,0 +1,27 @@
+# ~/.xbindkeysrc
+
+# === Fn keys ===
+
+# --- audio ---
+"amixer -c0 -- sset Master toggle"
+  XF86AudioMute
+
+"amixer -c0 -- sset Master 4%-"
+  XF86AudioLowerVolume
+
+"amixer -c0 -- sset Master 4%+"
+  XF86AudioRaiseVolume
+
+# --- other ---
+
+# lockscreen
+"xautolock -locknow"
+  XF86ScreenSaver
+
+# toggle whether it is enabled
+"xautolock -toggle"
+  Control + XF86ScreenSaver
+
+# toggle touchpad with Fn + ctrl + trackpad middle button (or two-finger click, but that is disable-only :D)
+"xinput list 'SynPS/2 Synaptics TouchPad' | grep disabled && CMD=enable || CMD=disable; xinput $CMD 'SynPS/2 Synaptics TouchPad'"
+  Control + XF86WakeUp + b:2
