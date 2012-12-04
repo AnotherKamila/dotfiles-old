@@ -3,7 +3,7 @@
 
 set convert-meta on
 
-set editing-mode vi
+#set editing-mode vi
 
 set bell-style none
 
@@ -21,10 +21,10 @@ set skip-completed-text on
 
 # vi-mode visualization
 # only with patched readline
-set vi-command-prompt \001\033[1;37m\002{}\001\033[0m\002
-$if Python
-    set vi-command-prompt \001\033[1;37;41m\002>\001\033[0m\002{}
-$endif
+# set vi-command-prompt \001\033[1;37m\002{}\001\033[0m\002
+# $if Python
+    # set vi-command-prompt \001\033[1;37;41m\002>\001\033[0m\002{}
+# $endif
 
 $if Bash
     set expand-tilde off
@@ -48,12 +48,12 @@ set visible-stats on
 "\C-n": history-search-forward
 
 # command mode keybindings {{{
-set keymap vi-command
+# set keymap vi-command
 
-# effectively before 'accept-line' switch to insert mode
-# this can be helpful in case of vi mode visualization
-"\n": "i\n"
-"\r": "i\r"
-# }}}
+# # effectively before 'accept-line' switch to insert mode
+# # this can be helpful in case of vi mode visualization
+# "\n": "i\n"
+# "\r": "i\r"
+# # }}}
 
 # vim: set noet ts=8 sw=8 fdm=marker fdl=99:
