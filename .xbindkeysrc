@@ -12,6 +12,18 @@
 "amixer -c0 -- sset Master 4%+"
   XF86AudioRaiseVolume
 
+"ncmpcpp prev"
+  XF86AudioPrev
+
+"ncmpcpp toggle"
+  XF86AudioPlay
+
+"ncmpcpp prev"
+  XF86AudioNext
+
+"ncmpcpp stop"
+  Control + XF86AudioPlay
+
 # --- other ---
 
 # lockscreen
