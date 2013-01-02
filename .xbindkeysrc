@@ -3,25 +3,25 @@
 # === Fn keys ===
 
 # --- audio ---
-"amixer -c0 -- sset Master toggle"
+"amixer -c0 sset Master toggle | grep off; M=$?; twmnc -l osd --id 20 -i ~/.icons/custom/vol-$([[ $M != 0 ]] && echo 'not')mute.png $([[ $M != 0 ]] && echo '-c ' && amixer -c0 sget Master | sed -r -n 's/[^]]*\[([0-9]+%)\].*/\1/p')"
   XF86AudioMute
 
-"amixer -c0 -- sset Master 4%-"
+"twmnc -l osd --id 20 -i ~/.icons/custom/vol-down.png -c $(amixer -c0 sset Master 4%- | sed -r -n 's/[^]]*\[([0-9]+%)\].*/\1/p')"
   XF86AudioLowerVolume
 
-"amixer -c0 -- sset Master 4%+"
+"twmnc -l osd --id 20 -i ~/.icons/custom/vol-up.png -c $(amixer -c0 sset Master 4%+ | sed -r -n 's/[^]]*\[([0-9]+%)\].*/\1/p')"
   XF86AudioRaiseVolume
 
-"ncmpcpp prev"
+"ncmpcpp prev && twmnc -l osd --id 21 -i ~/.icons/custom/media-prev.png"
   XF86AudioPrev
 
-"ncmpcpp toggle"
+"ncmpcpp toggle && twmnc -l osd --id 21 -i ~/.icons/custom/media-toggle.png"
   XF86AudioPlay
 
-"ncmpcpp prev"
+"ncmpcpp next && twmnc -l osd --id 21 -i ~/.icons/custom/media-next.png"
   XF86AudioNext
 
-"ncmpcpp stop"
+"ncmpcpp stop && twmnc -l osd --id 21 -i ~/.icons/custom/media-stop.png"
   Control + XF86AudioPlay
 
 # --- other ---
@@ -31,9 +31,9 @@
   XF86ScreenSaver
 
 # toggle whether it is enabled
-"xautolock -toggle"
+"xautolock -toggle && twmnc -l osd -i ~/.icons/custom/lock-screen.png -c 'auto-lock toggled'"
   Control + XF86ScreenSaver
 
 # toggle touchpad with Fn + ctrl + trackpad middle button (or two-finger click, but that is disable-only :D)
-"xinput list 'SynPS/2 Synaptics TouchPad' | grep disabled && CMD=enable || CMD=disable; xinput $CMD 'SynPS/2 Synaptics TouchPad'"
+"xinput list 'SynPS/2 Synaptics TouchPad' | grep disabled && CMD=enable || CMD=disable; xinput $CMD 'SynPS/2 Synaptics TouchPad'; twmnc -l osd --id 22 -i ~/.icons/custom/device-touchpad-${CMD}d.png -c touchpad\ ${CMD}d"
   Control + XF86WakeUp + b:2
