@@ -124,12 +124,6 @@ alias serveme='python3 -m http.server'
 
 alias icoffee='rlwrap coffee -i'
 
-if [[ -n $DISPLAY ]]; then
-	alias pasteit="curl -F 'sprunge=<-' http://sprunge.us | tr -d ' ' | xsel -i"
-else
-	alias pasteit="curl -F 'sprunge=<-' http://sprunge.us | tr -d ' '"
-fi
-
 alias pac="sudo pacmatic"
 alias aur="raury"
 alias aurs="raury -Ss"
@@ -152,6 +146,13 @@ function sshn { # new screen
 }
 
 alias s='mosh'  # and the mosh awesomeness gets s
+
+# uploads stdin to the sprunge.us pastebin
+function pasteit {
+	URL="`curl -F 'sprunge=<-' http://sprunge.us | tr -d ' '`"
+	[[ -n $DISPLAY ]] && echo "$URL" | xsel -i
+	echo "$URL"
+}
 
 # set terminal title
 function settitle { # does not work for screen (yet -- this is a TODO)
