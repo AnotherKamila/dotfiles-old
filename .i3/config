@@ -132,6 +132,7 @@ bindsym $m+Shift+k move up; exec $movemouse
 bindsym $m+Shift+l move right; exec $movemouse
 
 bindsym $m+Shift+q kill
+bindsym Mod1+F4 kill
 
 mode "resize" {
     bindsym h           resize shrink width 10 px or 10 ppt
