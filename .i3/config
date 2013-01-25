@@ -38,6 +38,8 @@ bindsym $m+Shift+g move container to workspace gimp
 
 for_window [title="xfce4-notifyd"] floating enable
 
+for_window [title="my fancy sim viewer"] floating enable; border normal 1pixel
+
 # --- i3bar ---
 bar {
     status_command i3status
