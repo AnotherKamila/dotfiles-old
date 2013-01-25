@@ -28,6 +28,7 @@ focus_follows_mouse yes
 # --- for-window settings ---
 for_window [title="synapse"] floating enable; border none; hide_edge_borders both
 for_window [window_role="browser"] border none
+for_window [title="Tabs Outliner"] floating enable; border 1pixel
 
 assign [class="Gimp"] → gimp
 bindsym $m+g workspace gimp
