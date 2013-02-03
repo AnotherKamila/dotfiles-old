@@ -71,6 +71,11 @@ export IGNOREEOF=1
 # a paranoid umask
 umask 077
 
+# color stderr with github.com/sickill/stderred
+if [[ -f "/usr/lib/libstderred.so" ]]; then
+	export LD_PRELOAD="/usr/lib/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
+fi
+
 # }}}
 
 . /usr/share/git/git-prompt.sh  # __git_ps1 was moved here
