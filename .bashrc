@@ -78,15 +78,18 @@ fi
 
 # }}}
 
-. /usr/share/git/git-prompt.sh  # __git_ps1 was moved here
-function parse_scm { # {{{
-	if [[ -d .svn ]] ; then
-		echo " svn:r`svnversion | sed 's/M/\*/'`"
-	else
-		echo -n "$(__git_ps1 ' git:%s')"
-		[[ -n `__git_ps1` ]] && [[ `git status 2> /dev/null | tail -n1` != "nothing to commit, working directory clean" ]] && echo -n "*"
-	fi
-} # }}}
+if [[ -f "/usr/share/git/git-prompt.sh" ]]; then
+	. /usr/share/git/git-prompt.sh  # __git_ps1 was moved here
+	function parse_scm { # {{{
+		if [[ -d .svn ]] ; then
+			echo " svn:r`svnversion | sed 's/M/\*/'`"
+		else
+			echo -n "$(__git_ps1 ' git:%s')"
+			[[ -n `__git_ps1` ]] && [[ `git status 2> /dev/null | tail -n1` != "nothing to commit, working directory clean" ]] && echo -n "*"
+		fi
+	}
+fi
+# }}}
 
 # variables
 export PATH="$HOME/.gem/ruby/1.9.1/bin/:$PATH"
