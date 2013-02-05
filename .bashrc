@@ -74,6 +74,7 @@ umask 077
 # color stderr with github.com/sickill/stderred
 if [[ -f "/usr/lib/libstderred.so" ]]; then
 	export LD_PRELOAD="/usr/lib/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
+	export STDERRED_ESC_CODE=`echo -e "\e[0;32m"`
 fi
 
 # }}}
