@@ -151,6 +151,9 @@ bindsym $m+r mode "resize"
 # caps lock is remapped to this in .Xmodmap
 bindsym XF86LaunchB workspace back_and_forth
 
+# switch back when pressing the current workspace
+workspace_auto_back_and_forth yes
+
 bindsym $m+Shift+quotedbl exec i3-input -P 'Mark window: ' -F 'mark "%s"' -l 1
 bindsym $m+apostrophe exec i3-input -P 'Go to mark: ' -F '[con_mark="%s"] focus' -l 1
 
