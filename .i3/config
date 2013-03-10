@@ -31,7 +31,7 @@ for_window [window_role="browser"] border none
 for_window [title="Tabs Outliner"] floating enable; border 1pixel
 
 assign [class="Gimp"] → gimp
-bindsym $m+g workspace gimp
+bindsym $m+g workspace gimp; exec sh -c "pgrep gimp || gimp"
 bindsym $m+Shift+g move container to workspace gimp
 #for_window [window_role="gimp-toolbox"] floating disable; move right; move right
 #for_window [window_role="gimp-dock"] floating disable; move left
