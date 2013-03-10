@@ -28,3 +28,6 @@ udisksvm &
 
 # cross-WM keybindings
 xbindkeys
+
+# dropbox daemon
+dropbox start
