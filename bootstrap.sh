@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EXCLUDE="README.md .git/ `basename $0`"
+EXCLUDE="README.md .git/ .gitignore `basename $0`"
 
 if [[ $(readlink -f $PWD) != $(readlink -f `dirname $0`) ]] ; then
 	echo "This script must be run from the dotfiles dir (`dirname $0`)."
