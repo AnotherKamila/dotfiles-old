@@ -1,0 +1,13 @@
+[user]
+	name = Kamila Souckova
+	email = kamila@vesmir.sk
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
+	lg = log --graph --color --pretty=format:'%C(yellow)%h%C(reset) -%C(red)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit --date=relative
+[core]
+	pager = less
