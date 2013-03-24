@@ -30,3 +30,4 @@ udisksvm &
 xbindkeys &
 
 dropbox start &  # dropbox daemon
+blueman-applet &  # bluetooth
