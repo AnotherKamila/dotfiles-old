@@ -90,6 +90,6 @@ URxvt*matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#
 URxvt*matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 ! }}}
 
-Xcursor.theme: ATER_Blue
+Xcursor.theme: oxy-neon
 
 ! vim:ai:si:et:ts=4:sw=4:ft=xdefaults:
