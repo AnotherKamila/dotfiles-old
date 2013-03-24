@@ -3,7 +3,7 @@
 # ~/.config/bin/after_session_startup.sh
 
 # ctrl+alt+backspace should kill X
-setxkbmap -option terminate:ctrl_alt_bksp
+setxkbmap -option terminate:ctrl_alt_bksp &
 
 # set up input devices and screen(s)
 ~/.config/bin/peripherals.sh &
@@ -27,7 +27,6 @@ twmnd &
 udisksvm &
 
 # cross-WM keybindings
-xbindkeys
+xbindkeys &
 
-# dropbox daemon
-dropbox start
+dropbox start &  # dropbox daemon

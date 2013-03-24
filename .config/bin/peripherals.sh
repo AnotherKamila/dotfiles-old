@@ -3,8 +3,8 @@
 # my input and screen preferences
 
 # keyboard
-setxkbmap -option compose:menu
-[[ -f $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap
+setxkbmap -option compose:menu &
+[[ -f $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap &
 
 # touchpad
 # the negative *ScrollDelta values are the "natural scrolling" hack that confuses people so much
@@ -19,19 +19,20 @@ synclient VertEdgeScroll=0 HorizEdgeScroll=0 \
 		  ClickFinger1=1 ClickFinger2=3 ClickFinger3=2 \
 		  RightButtonAreaLeft=5000 \
 		  PalmDetect=1 \
+		  &
 
 # trackpad (both internal and on USB keyboard)
 TRACKPAD_ID=`xinput list | grep 'TrackPoint' | grep pointer | cut -f2 | cut -f2 -d'='`
 if [[ -n $TRACKPAD_ID ]]; then
-	xinput set-int-prop $TRACKPAD_ID 'Evdev Wheel Emulation Axes' 8 6 7 4 5
-	xinput set-int-prop $TRACKPAD_ID 'Evdev Wheel Emulation Button' 8 2
-	xinput set-int-prop $TRACKPAD_ID 'Evdev Wheel Emulation' 8 1
+	xinput set-int-prop $TRACKPAD_ID 'Evdev Wheel Emulation Axes' 8 6 7 4 5  &
+	xinput set-int-prop $TRACKPAD_ID 'Evdev Wheel Emulation Button' 8 2  &
+	xinput set-int-prop $TRACKPAD_ID 'Evdev Wheel Emulation' 8 1  &
 fi
 
 # multi-monitor
 EXTM=`xrandr | grep '\<connected\>' | grep -v LVDS1`
 if [[ -n $EXTM ]]; then
-	xrandr --output $EXTM --above LVDS1 --auto
+	xrandr --output $EXTM --above LVDS1 --auto &
 else
 	for m in VGA1 HDMI1 DP1; do xrandr --output $m --off; done
 fi
