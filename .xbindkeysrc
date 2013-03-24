@@ -38,7 +38,7 @@
 "xinput list 'SynPS/2 Synaptics TouchPad' | grep disabled && CMD=enable || CMD=disable; xinput $CMD 'SynPS/2 Synaptics TouchPad'; twmnc -l osd --id 22 -i ~/.icons/custom/device-touchpad-${CMD}d.png -c touchpad\ ${CMD}d"
   Control + XF86WakeUp + b:2
 
-# --- power management ---
+# --- leave the computer ---
 
-"~/.config/bin/powermgmt.sh"
+"~/.config/bin/goaway.sh"
   Control + Alt + Delete

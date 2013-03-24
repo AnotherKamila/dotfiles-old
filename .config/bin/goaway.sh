@@ -1,5 +1,6 @@
 #!/bin/bash
 read -r -d '' CHOICES <<- 'EOF'
+    0. log out   : i3-msg exit
 	1. suspend   : systemctl suspend
 	2. hibernate : systemctl hibernate
 	3. power off : systemctl poweroff
