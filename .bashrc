@@ -119,6 +119,7 @@ alias e=' $EDITOR'
 alias ce='subl'
 alias v='$PAGER'
 alias se='sudo $EDITOR'
+alias o='xdg-open'
 
 alias mkdir='mkdir -p'
 
@@ -133,8 +134,6 @@ alias icoffee='rlwrap coffee -i'
 alias pac="sudo pacmatic"
 alias aur="raury"
 alias aurs="raury -Ss"
-
-alias o="xdg-open"  # a symlink to rox anyway :D
 
 [[ -f ~/.bash_aliases.local ]] && . ~/.bash_aliases.local
 # }}}
