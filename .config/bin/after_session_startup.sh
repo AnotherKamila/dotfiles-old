@@ -30,4 +30,7 @@ udisksvm &
 xbindkeys &
 
 dropbox start &  # dropbox daemon
-blueman-applet &  # bluetooth
+
+# bluetooth
+blueman-applet &  # load applet...
+dbus-send --type=method_call --session --print-reply --dest=org.blueman.Applet / org.blueman.Applet.SetBluetoothStatus boolean:false  # ... and turn BT off to save power
