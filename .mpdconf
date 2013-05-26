@@ -11,7 +11,7 @@ bind_to_address		"127.0.0.1"
 port			"6600"
 gapless_mp3_playback	"yes"
 save_absolute_paths_in_playlists    "no"
-metadata_to_use		"artist,album,title,track,name,genre,date,composer,performer,disc"
+metadata_to_use		"artist,album,albumartist,title,track,name,genre,date,composer,performer,disc"
 auto_update		"yes"
 follow_outside_symlinks	"yes"
 follow_inside_symlinks	"yes"
@@ -24,6 +24,7 @@ input {
 
 audio_output {
 	type        "alsa"
+	mixer_type  "software"
 	name        "My Awesome Speakers"
 }
 

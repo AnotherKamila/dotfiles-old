@@ -89,10 +89,6 @@ if [[ -f "/usr/share/git/git-prompt.sh" ]]; then
 fi
 # }}}
 
-# variables
-export PATH="$HOME/.gem/ruby/1.9.1/bin/:$PATH"
-#
-
 # aliases {{{
 
 alias ls='ls -hC --color=auto'
@@ -130,10 +126,6 @@ alias shortps1="export PS1='\[\033[0;34m\]>\[\033[0m\] '"
 alias serveme='python3 -m http.server'
 
 alias icoffee='rlwrap coffee -i'
-
-alias pac="sudo pacmatic"
-alias aur="raury"
-alias aurs="raury -Ss"
 
 [[ -f ~/.bash_aliases.local ]] && . ~/.bash_aliases.local
 # }}}

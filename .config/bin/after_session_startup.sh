@@ -2,9 +2,6 @@
 
 # ~/.config/bin/after_session_startup.sh
 
-# ctrl+alt+backspace should kill X
-setxkbmap -option terminate:ctrl_alt_bksp &
-
 # set up input devices and screen(s)
 ~/.config/bin/peripherals.sh &
 
@@ -33,4 +30,4 @@ dropbox start &  # dropbox daemon
 
 # bluetooth
 blueman-applet &  # load applet...
-dbus-send --type=method_call --session --print-reply --dest=org.blueman.Applet / org.blueman.Applet.SetBluetoothStatus boolean:false  # ... and turn BT off to save power
+sleep 5 && dbus-send --type=method_call --session --print-reply --dest=org.blueman.Applet / org.blueman.Applet.SetBluetoothStatus boolean:false  # ... and turn BT off to save power

@@ -6,7 +6,8 @@ set $m Mod4
 #set $term i3-sensible-terminal
 set $term urxvtc
 set $file_manager rox
-set $launcher synapse
+#set $launcher synapse
+set $launcher dmenu_run
 set $browser chromium
 set $music_player music_player.sh
 
@@ -29,14 +30,13 @@ focus_follows_mouse yes
 for_window [title="synapse"] floating enable; border none; hide_edge_borders both
 for_window [window_role="browser"] border none
 for_window [title="Tabs Outliner"] floating enable; border 1pixel
+for_window [title="Screen Layout Editor"] floating enable
 
 assign [class="Gimp"] → gimp
 bindsym $m+g workspace gimp; exec sh -c "pgrep gimp || gimp"
 bindsym $m+Shift+g move container to workspace gimp
 #for_window [window_role="gimp-toolbox"] floating disable; move right; move right
 #for_window [window_role="gimp-dock"] floating disable; move left
-
-for_window [title="xfce4-notifyd"] floating enable
 
 for_window [title="my fancy sim viewer"] floating enable; border normal 1pixel
 
@@ -57,8 +57,6 @@ bar {
 
 # --- windows ---
 floating_modifier $m
-
-
 
 # --- workspaces ---
 bindsym $m+1 workspace number 1
@@ -138,9 +136,9 @@ bindsym $m+Shift+q kill
 bindsym Mod1+F4 kill
 
 mode "resize" {
-    bindsym h           resize shrink width 10 px or 10 ppt
-    bindsym j           resize grow height 10 px or 10 ppt
-    bindsym k           resize shrink height 10 px or 10 ppt
+    bindsym h   resize shrink width 10 px or 10 ppt
+    bindsym j   resize grow height 10 px or 10 ppt
+    bindsym k   resize shrink height 10 px or 10 ppt
     bindsym l   resize grow width 10 px or 10 ppt
 
     bindsym Return mode "default"
@@ -167,9 +165,8 @@ bindsym $m+Shift+Escape exec i3-input -P 'WM command: '
 
 bindsym $m+Shift+c reload
 bindsym $m+Shift+r restart
-bindsym $m+Shift+e exec "i3-nagbar -t warning -m 'Really exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# --- startup pgrograms ---
+# --- startup programs ---
 exec --no-startup-id compton -CGf -i0.8 -e0.9 -b
 exec --no-startup-id ~/.config/bin/after_session_startup.sh
-exec --no-startup-id synapse -s
+#exec --no-startup-id synapse -s

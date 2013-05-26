@@ -154,61 +154,31 @@ message_delay_time = "4"
 #song_columns_list_format = "(7f)[green]{l} (25)[cyan]{a} (40)[]{t|f} (30)[red]{b}"
 
 ### various settings ###
-#
-# custom command that will be executed each time song changes
-#
 #execute_on_song_change = ""
-#
 playlist_show_remaining_time = "no"
-#
 playlist_shorten_total_times = "no"
-#
 playlist_separate_albums = "no"
-#
 playlist_display_mode = "columns"  # (classic/columns)
-#
 browser_display_mode = "columns"  # (classic/columns)
-#
 search_engine_display_mode = "columns"  # (classic/columns)
-#
 discard_colors_if_item_is_selected = "no"
-#
 incremental_seeking = "yes"
-#
 seek_time = "1"
-#
 autocenter_mode = "yes"
-#
 centered_cursor = "no"
-#
-#
-# Note: You can specify third character which will
-# be used to build 'empty' part of progressbar.
-#
 progressbar_look = "=0-"
-#
 default_place_to_search_in = "database"
-#
 user_interface = "alternative"
-#
-#media_library_left_column = "a" (possible values: a,y,g,c,p, legend above)
-#
-#default_find_mode = "wrapped" (wrapped/normal)
-#
-#default_space_mode = "add" (add/select)
-#
-#default_tag_editor_left_col = "albums" (albums/dirs)
-#
+#media_library_left_column = "A" (possible values: a,y,g,c,p, legend above)
+default_find_mode = "wrapped"  # (wrapped/normal)
+default_space_mode = "add"  # (add/select)
+default_tag_editor_left_col = "albums"  # (albums/dirs)
 #default_tag_editor_pattern = "%n - %t"
-#
 #
 follow_now_playing_lyrics = "no"
 store_lyrics_in_song_dir = "no"
 #
 ncmpc_like_songs_adding = "yes"
-#
-#
-#
 #
 # How shall key_screen_switcher work?
 #
