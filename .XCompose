@@ -2,3 +2,4 @@ include "%L"
 
 include "/home/kamila/.XCompose.d/arrows.xcompose"
 include "/home/kamila/.XCompose.d/typographic.xcompose"
+include "/home/kamila/.XCompose.d/math.xcompose"
