@@ -28,6 +28,8 @@ xbindkeys &
 
 dropbox start &  # dropbox daemon
 
+conky -c ~/.config/conky/conkyrc &
+
 # bluetooth
 blueman-applet &  # load applet...
 sleep 5 && dbus-send --type=method_call --session --print-reply --dest=org.blueman.Applet / org.blueman.Applet.SetBluetoothStatus boolean:false  # ... and turn BT off to save power
