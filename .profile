@@ -10,7 +10,7 @@ export TERMINAL='urxvtc'
 export PATH="~/.gem/ruby/2.0.0/bin:~/bin/:~/.config/bin/:$PATH"
 
 if [[ -n "$DISPLAY" ]]; then
-    export EDITOR='subl -n'
+    export EDITOR='subl3 -n'
 	export BROWSER='chromium'
     export GIT_EDITOR='vim'  # faster to load than ST
 else

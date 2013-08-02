@@ -112,7 +112,7 @@ alias lld='ls -ld'
 alias su="sudo -s"
 
 alias e=' $EDITOR'
-alias ce='subl'
+alias ce='subl3'
 alias v='$PAGER'
 alias se='sudo $EDITOR'
 alias o='xdg-open'
@@ -165,15 +165,15 @@ function st {
 	${scm%:*} status
 }
 
-# open ST2 with the correct project
+# open ST3 with the correct project
 function p {
-	PATH_TO_ST_PROJECTS='~/.config/sublime-text-2/Projects/'; PROJECT_EXT='.sublime-project'
+	PATH_TO_ST_PROJECTS='~/.config/sublime-text-3/Projects/'; PROJECT_EXT='.sublime-project'
 	REPO="${PWD#~/projects/}"
 	FILE="$PATH_TO_ST_PROJECTS/$REPO$PROJECT_EXT"
 	if [[ -f "$FILE" ]]; then
-		subl --project "$FILE"
+		subl3 --project "$FILE"
 	else
-		subl -n .
+		subl3 -n .
 	fi
 }
 
