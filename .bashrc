@@ -87,6 +87,13 @@ if [[ -f "/usr/share/git/git-prompt.sh" ]]; then
 		fi
 	}
 fi
+
+# do not let virtualenv activate scripts control display of virtualenv in my prompt (so that I can do it myself)
+VIRTUAL_ENV_DISABLE_PROMPT=1
+function _my_virtualenv_prompt {
+	[[ -n "$VIRTUAL_ENV" ]] && echo -ne "\033[1;35m(`basename \"$VIRTUAL_ENV\"`)\e[0m"
+}
+
 # }}}
 
 # aliases {{{
@@ -189,7 +196,7 @@ export PROMPT_COMMAND="$PROMPT_COMMAND ; settitle \$_CURRENT_TITLE"
 
 [[ -z $HOST_COLOR ]] && HOST_COLOR="$((${#HOSTNAME}%6 + 2))"  # works perfectly for like 5 machines, this is the best "hash" function ever :D
 
-export PS1='$(R=$? ; [[ $R != 0 ]] && echo -n "\[\033[0;33m\]?$R ")\[\033[0;3${HOST_COLOR}m\]\u\[\033[0m\]@\[\033[0;3${HOST_COLOR}m\]\h\[\033[0;36m\] \w\[\033[0;31m\]$(parse_scm)\[\033[0m\] \$ '
+export PS1='$(R=$? ; [[ $R != 0 ]] && echo -n "\[\033[0;33m\]?$R ")$(_my_virtualenv_prompt)\[\033[0;3${HOST_COLOR}m\]\u\[\033[0m\]@\[\033[0;3${HOST_COLOR}m\]\h\[\033[0;36m\] \w\[\033[0;31m\]$(parse_scm)\[\033[0m\] \$ '
 
 # }}}
 
