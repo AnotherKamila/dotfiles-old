@@ -76,17 +76,17 @@ fi
 
 # }}}
 
-if [[ -f "/usr/share/git/git-prompt.sh" ]]; then
-	. /usr/share/git/git-prompt.sh  # __git_ps1 was moved here
-	function parse_scm { # {{{
-		if [[ -d .svn ]] ; then
-			echo " svn:r`svnversion | sed 's/M/\*/'`"
-		else
+[[ -f "/usr/share/git/git-prompt.sh" ]] && . /usr/share/git/git-prompt.sh  # __git_ps1 was moved here
+function parse_scm { # {{{
+	if [[ -d .svn ]] ; then
+		echo " svn:r`svnversion | sed 's/M/\*/'`"
+	else
+		if [[ `type -t __git_ps1` == 'function' ]] ; then
 			echo -n "$(__git_ps1 ' git:%s')"
 			[[ -n `__git_ps1` ]] && [[ `git status 2> /dev/null | tail -n1` != "nothing to commit, working directory clean" ]] && echo -n "*"
 		fi
-	}
-fi
+	fi
+}
 
 # do not let virtualenv activate scripts control display of virtualenv in my prompt (so that I can do it myself)
 VIRTUAL_ENV_DISABLE_PROMPT=1
