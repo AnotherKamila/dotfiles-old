@@ -53,3 +53,7 @@
 
 "~/.config/bin/goaway.sh"
   Control + Alt + Delete
+
+# --- applications ---
+"copyq toggle"
+  Insert

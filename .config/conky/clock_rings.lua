@@ -125,7 +125,7 @@ settings_table = {
 	{
 		name = 'downspeedf',
 		arg  = 'wlp3s0',
-		max  = 10e3,
+		max  = 5e3,
 		bg_colour = default_color,
 		bg_alpha = 0.2,
 		fg_colour = default_color,
@@ -139,7 +139,7 @@ settings_table = {
 	{
 		name = 'upspeedf',
 		arg  = 'wlp3s0',
-		max  = 10e3,
+		max  = 5e3,
 		bg_colour = default_color,
 		bg_alpha = 0.2,
 		fg_colour = default_color,

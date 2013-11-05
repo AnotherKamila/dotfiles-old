@@ -21,7 +21,7 @@ urxvtd &
 twmnd &
 
 # automounting daemon
-udisksvm &
+udisksvm -a &
 
 # cross-WM keybindings
 xbindkeys &

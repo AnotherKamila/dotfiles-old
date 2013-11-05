@@ -116,8 +116,6 @@ alias lld='ls -ld'
 
 #alias ..='cd ..'
 
-alias su="sudo -s"
-
 alias e=' $EDITOR'
 alias ce='subl3'
 alias v='$PAGER'
@@ -174,14 +172,8 @@ function st {
 
 # open ST3 with the correct project
 function p {
-	PATH_TO_ST_PROJECTS='~/.config/sublime-text-3/Projects/'; PROJECT_EXT='.sublime-project'
-	REPO="${PWD#~/projects/}"
-	FILE="$PATH_TO_ST_PROJECTS/$REPO$PROJECT_EXT"
-	if [[ -f "$FILE" ]]; then
-		subl3 --project "$FILE"
-	else
-		subl3 -n .
-	fi
+	PROJECT_FILE='.this.sublime-project'
+	subl3 --project "$PROJECT_FILE"
 }
 
 # }}}
