@@ -127,10 +127,9 @@ alias mkdir='mkdir -p'
 [[ -n `which trash 2>/dev/null` ]] && alias rm='trash' # because I am an idiot
 
 alias shortps1="export PS1='\[\033[0;34m\]>\[\033[0m\] '"
-
 alias serveme='python3 -m http.server'
-
 alias icoffee='rlwrap coffee -i'
+alias todo='subl ~/TODO'
 
 [[ -f ~/.bash_aliases.local ]] && . ~/.bash_aliases.local
 # }}}

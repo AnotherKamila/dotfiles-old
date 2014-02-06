@@ -97,12 +97,18 @@ bindsym $m+Shift+m move container to workspace music
 bindsym $m+F1 workspace school
 bindsym $m+Shift+F1 move container to workspace school
 
+bindsym $m+n workspace notes
+bindsym $m+Shift+n move container to workspace notes
+
 bindsym $m+Right workspace next_on_output
 bindsym	$m+Shift+Right move container to workspace next_on_output
 bindsym $m+Left workspace prev_on_output
 bindsym $m+Shift+Left move container to workspace prev_on_output
 
-bindsym $m+F7 move workspace to output right
+bindsym $m+F7 move workspace to output next
+bindsym $m+F2 move workspace to output LVDS1
+bindsym $m+F3 move workspace to output HDMI1
+bindsym $m+F4 move workspace to output VGA1
 
 # --- window management keybindings ---
 
