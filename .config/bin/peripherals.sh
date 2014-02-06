@@ -15,6 +15,7 @@ synclient VertEdgeScroll=0 HorizEdgeScroll=0 \
 	  RightButtonAreaLeft=5000 \
 	  PalmDetect=1 \
 	  &
+syndaemon -t -k -i1 -d &  # disable tapping and scrolling while typing
 
 # trackpad (both internal and on USB keyboard)
 TRACKPAD_ID=`xinput list | grep 'TrackPoint' | grep pointer | cut -f2 | cut -f2 -d'='`
@@ -32,8 +33,8 @@ xrandr --output LVDS1 --auto
 EXTM=`xrandr | grep '\<connected\>' | grep -v LVDS1 | cut -d' ' -f1`
 if [[ -n $EXTM ]]; then
 	echo "$0: setting up display: $EXTM"
-	xrandr --output $EXTM --above LVDS1 --auto &
+	xrandr --output $EXTM --primary --preferred --above LVDS1 --auto &
 else
 	for m in VGA1 HDMI1 DP1; do xrandr --output $m --off; done
-	xrandr --output LVDS1 --auto
+	xrandr --output LVDS1 --primary --preferred --auto
 fi
