@@ -157,7 +157,7 @@ alias slpq_t2='ssh ksp lpq'
 
 # uploads stdin to the sprunge.us pastebin
 function pasteit {
-	URL="`curl -F 'sprunge=<-' http://sprunge.us | tr -d ' '`"
+	URL="`curl -F 'sprunge=<-' http://paste.tumbolia.tk | tr -d ' '`"
 	[[ -n $DISPLAY ]] && echo "$URL" | xsel -i
 	echo "$URL"
 }
