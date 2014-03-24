@@ -7,7 +7,7 @@ source /etc/profile
 
 export TERMINAL='urxvtc'
 
-export PATH="~/.gem/ruby/2.0.0/bin:~/bin/:~/.config/bin/:$PATH"
+export PATH="~/.gem/ruby/2.1.0/bin:~/bin/:~/.config/bin/:$PATH"
 
 if [[ -n "$DISPLAY" ]]; then
     export EDITOR='subl3 -n'
@@ -27,7 +27,9 @@ export LESS="-RSMgw"
 # (argh)
 export LC_COLLATE='POSIX'
 
-export GTK_IM_MODULE="xim"  # the input method that doesn't disregard .XCompose
+# export GTK_IM_MODULE="xim"  # the input method that doesn't disregard .XCompose
+
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # }}}
 

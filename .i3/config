@@ -177,6 +177,6 @@ bindsym $m+Shift+c reload
 bindsym $m+Shift+r restart
 
 # --- startup programs ---
-exec --no-startup-id compton -CGf -i0.8 --use-ewmh-active-win -e0.9 -b
+#exec --no-startup-id compton -CGf -i0.8 --use-ewmh-active-win -e0.9 -b
 exec --no-startup-id ~/.config/bin/after_session_startup.sh
 #exec --no-startup-id synapse -s

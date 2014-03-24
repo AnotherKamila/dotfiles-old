@@ -1,7 +1,7 @@
 # Kamila's dotfiles (http://github.com/anotherkamila/dotfiles)
 # .inputrc -- applies to everything that uses the readline lib
 
-set convert-meta on
+set convert-meta off
 
 #set editing-mode vi
 
@@ -26,11 +26,11 @@ set skip-completed-text on
     # set vi-command-prompt \001\033[1;37;41m\002>\001\033[0m\002{}
 # $endif
 
-$if Bash
-    set expand-tilde off
+set expand-tilde off
 
-    # expands ! things (e.g. !:2 == 2nd argument of prev command, !* == all args,
-    # !-3$ == last arg of command 3 commands back...)
+# expands ! things (e.g. !:2 == 2nd argument of prev command, !* == all args,
+# !-3$ == last arg of command 3 commands back...)
+$if Bash
     Space: magic-space
 $endif
 
