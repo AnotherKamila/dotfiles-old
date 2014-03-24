@@ -148,6 +148,13 @@ function sshn { # new screen
 
 alias s='mosh'  # and the mosh awesomeness gets s
 
+# print over ssh!
+function slpr_t2 {
+	f="`basename $1`-$RANDOM"
+	scp "$1" "ksp:~/_print_spool/$f" && ssh ksp lpr "~/_print_spool/$f"
+}
+alias slpq_t2='ssh ksp lpq'
+
 # uploads stdin to the sprunge.us pastebin
 function pasteit {
 	URL="`curl -F 'sprunge=<-' http://sprunge.us | tr -d ' '`"
