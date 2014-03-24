@@ -19,7 +19,8 @@ eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"
 export GNOME_KEYRING_CONTROL SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_PID
 
 # ctrl+alt+backspace should kill X
-setxkbmap -option terminate:ctrl_alt_bksp &
+setxkbmap sk-altgr altgr \
+          -option terminate:ctrl_alt_bksp &
 
 # merge in defaults and keymaps
 [[ -f "$HOME/.Xresources" ]] && xrdb -merge "$HOME/.Xresources"
