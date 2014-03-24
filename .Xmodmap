@@ -4,3 +4,6 @@ keycode 66 = XF86LaunchB
 
 ! set compose key to print (it is where the menu key usually is on my keyboard (!))
 keycode 107 = Multi_key
+
+! lambda! ...never used that key anyway...
+keycode 94 = U03BB U039B
