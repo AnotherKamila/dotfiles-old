@@ -1,5 +1,5 @@
+! make Caps Lock useful (mapped to workspace switching in .i3/config)
 remove Lock = Caps_Lock
-! this key is/will be mapped to different things in different apps
 keycode 66 = XF86LaunchB
 
 ! set compose key to print (it is where the menu key usually is on my keyboard (!))
