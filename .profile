@@ -7,7 +7,7 @@ source /etc/profile
 
 export TERMINAL='urxvtc'
 
-export PATH="~/.gem/ruby/2.1.0/bin:~/bin/:~/.config/bin/:$PATH"
+export PATH="~/.local/bin/:~/.gem/ruby/2.1.0/bin:~/.cabal/bin/:~/bin/:~/.config/bin/:$PATH"
 
 if [[ -n "$DISPLAY" ]]; then
     export EDITOR='subl3 -n'

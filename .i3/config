@@ -1,6 +1,7 @@
 # i3 config file (v4)
 
 set $m Mod4
+set $alt Mod1
 
 # --- variables ---
 #set $term i3-sensible-terminal
