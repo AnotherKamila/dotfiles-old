@@ -9,10 +9,10 @@ fi
 
 REAL_EXCLUDE="${EXCLUDE// /\|}"
 
-for F in $(find . -type f -printf '%P\n' | grep -v -e "^$REAL_EXCLUDE") ; do
+for F in $(find . -type f -printf '%P\n' | grep -v -E "^$REAL_EXCLUDE") ; do
 	echo -n "$F"
 	SF="`readlink -m $F`" ; TF="$HOME/$F"
 	if rm -f "$TF" && mkdir -p "`dirname $TF`" && ln -s "$SF" "$TF"
 		then echo ' ✔' ; else echo ' ✘'
-	fi 
+	fi
 done

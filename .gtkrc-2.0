@@ -1,1 +1,6 @@
+# -- THEME AUTO-WRITTEN DO NOT EDIT
+include "/usr/share/themes/Numix Solarized/gtk-2.0/gtkrc"
+
 include "/home/kamila/.gtkrc.mine"
+
+# -- THEME AUTO-WRITTEN DO NOT EDIT

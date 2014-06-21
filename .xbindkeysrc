@@ -39,10 +39,10 @@
   Control + XF86WakeUp + b:2
 
 # backlight
-"xbacklight -inc 10"
+"xbacklight -inc 5"
   XF86MonBrightnessUp
 
-"xbacklight -dec 10"
+"xbacklight -dec 5"
   XF86MonBrightnessDown
 
 # bind a nice menu with common system administration tasks to the ThinkVantage button

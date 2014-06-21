@@ -169,7 +169,7 @@ centered_cursor = "no"
 progressbar_look = "=0-"
 default_place_to_search_in = "database"
 user_interface = "alternative"
-#media_library_left_column = "A" (possible values: a,y,g,c,p, legend above)
+media_library_left_column = "A" # (possible values: a,y,g,c,p, legend above)
 default_find_mode = "wrapped"  # (wrapped/normal)
 default_space_mode = "add"  # (add/select)
 default_tag_editor_left_col = "albums"  # (albums/dirs)

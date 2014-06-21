@@ -6,18 +6,21 @@ db_file			"~/.mpd/mpd.db"
 log_file		"~/.mpd/mpd.log"
 state_file		"~/.mpd/mpdstate"
 sticker_file		"~/.mpd/sticker.sql"
-#bind_to_address     "127.0.0.1"
+#bind_to_address	"127.0.0.1"
 bind_to_address		"0.0.0.0"
 #bind_to_address	"~/.mpd/socket"
 port			"6600"
 gapless_mp3_playback	"yes"
 save_absolute_paths_in_playlists    "no"
-metadata_to_use		"artist,album,albumartist,title,track,name,genre,date,composer,performer,disc"
+metadata_to_use		"albumartist,artist,album,title,track,name,genre,date,composer,performer,disc"
 auto_update		"yes"
 follow_outside_symlinks	"yes"
 follow_inside_symlinks	"yes"
 
 restore_paused		"yes"
+
+zeroconf_enabled	"yes"
+zeroconf_name		"Kamila's MPD"
 
 input {
 	plugin "curl"
