@@ -65,9 +65,6 @@ shopt -s cdspell
 # by referencing only its name, not whole path
 #export CDPATH=".:~:~/.dirlinks"
 
-# ^D exits bash too conveniently: require to press twice to exit
-export IGNOREEOF=1
-
 # color stderr with github.com/sickill/stderred
 if [[ -f "/usr/lib/libstderred.so" ]]; then
 	export LD_PRELOAD="/usr/lib/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
@@ -98,6 +95,7 @@ function _my_virtualenv_prompt {
 
 # aliases {{{
 
+#alias ls='ls -hG'  # TODO BSD vs GNU ls (or just use COLORDIR env var)
 alias ls='ls -hC --color=auto'
 alias grep='grep --color=auto'
 which colordiff &>/dev/null && alias diff=colordiff

@@ -8,8 +8,8 @@ set $alt Mod1
 set $term urxvtc
 set $file_manager rox
 #set $launcher synapse
-set $launcher dmenu_run
-set $browser chromium
+set $launcher i3-dmenu-desktop
+set $browser chrome
 set $music_player music_player.sh
 
 # --- appearance ---

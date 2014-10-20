@@ -75,19 +75,23 @@ Xft.lcdfilter:  lcddefault
 
 ! urxvt {{{
 URxvt.urgentOnBell:     True
-URxvt.fading:           20
+!URxvt.fading:           20
 URxvt.cursorColor:      grey
 !URxvt.italicFont:      !TODO
 URxvt.scrollBar:        off
-URxvt.scrollTtyOutput:  True
-URxvt.saveLines:        1000
+URxvt.scrollTtyOutput:  False
+URxvt.scrollTtyKeypress:True
+URxvt.scrollWithBuffer: True
+URxvt.saveLines:        500
+URxvt.secondaryScreen:  1
+URxvt.secondaryScroll:  0
+URxvt.secondaryWheel:   1
 URxvt.visualBell:       True
-URxvt.jumpScroll:		False
+URxvt.jumpScroll:       False
 URxvt.perl-ext-common:  default,matcher
-URxvt.urlLauncher:      /usr/bin/chromium
+!URxvt.url-launcher:     /usr/local/bin/chrome
+URxvt.url-launcher:     /usr/local/bin/firefox
 URxvt.matcher.button:   1
-URxvt*matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-URxvt*matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
 ! }}}
 

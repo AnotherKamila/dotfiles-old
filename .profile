@@ -9,18 +9,16 @@ export TERMINAL='urxvtc'
 
 export PATH="~/.local/bin/:~/.gem/ruby/2.1.0/bin:~/.cabal/bin/:~/bin/:~/.config/bin/:$PATH"
 
-if [[ -n "$DISPLAY" ]]; then
-    export EDITOR='subl3 -n'
-	export BROWSER='chromium'
-    export GIT_EDITOR='vim'  # faster to load than ST
+if [ "$DISPLAY" ]; then
+	export BROWSER='chrome'
 else
-    export EDITOR='vim'
 	export BROWSER='elinks'
 fi
-export VISUAL=$EDITOR
-# export PAGER='vimpager'
-export LESS="-RSMgw"
+export EDITOR='vim'
+export VISUAL="$EDITOR"
+#export PAGER='vimpager'
 #export MANPAGER='vimmanpager'
+export LESS="-RSMgw"
 
 # see
 # http://stackoverflow.com/questions/4834353/what-is-up-with-a-z-meaning-a-za-z
