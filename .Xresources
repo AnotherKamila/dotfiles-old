@@ -64,7 +64,6 @@
 
 ! fonts {{{
 *.font:         -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso10646-1
-
 Xft.dpi:        97
 Xft.antialias:  true
 Xft.rgba:       rgb

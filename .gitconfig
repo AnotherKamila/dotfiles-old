@@ -1,6 +1,6 @@
 [user]
-	name = Kamila Souckova
-	email = kamila@vesmir.sk
+	name = Kamila Součková
+	email = kamila@ksp.sk
 [color]
 	ui = auto
 [alias]
@@ -9,7 +9,11 @@
 	br = branch
 	st = status
 	lg = log --all --graph --color --pretty=format:'%C(yellow)%h%C(reset) -%C(red)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit --date=relative
+	undo-commit = reset --soft HEAD^
 [core]
 	pager = less
+	excludesfile = /home/kamila/.config/gitignore-global
 [push]
 	default = upstream
+[merge]
+	conflictstyle = diff3

@@ -42,6 +42,7 @@ bindsym $m+Shift+g move container to workspace gimp
 
 for_window [title="my fancy sim viewer"] floating enable; border normal 1pixel
 for_window [title="Magic!"] floating enable; border normal 1pixel
+for_window [title="anthill"] floating enable; border normal 1pixel
 
 # --- i3bar ---
 bar {
@@ -111,8 +112,8 @@ bindsym $m+Shift+F12 move container to workspace F12
 bindsym $m+Shift+plus move scratchpad
 bindsym $m+equal scratchpad show
 
-bindsym $m+space workspace ⌂
-bindsym $m+Shift+space move container to workspace ⌂
+bindsym $m+space workspace ≡
+bindsym $m+Shift+space move container to workspace ≡
 
 bindsym $m+w workspace www; exec sh -c "pgrep $browser || $browser"
 bindsym $m+Shift+w move container to workspace www

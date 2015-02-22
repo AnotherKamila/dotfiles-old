@@ -7,7 +7,7 @@ source /etc/profile
 
 export TERMINAL='urxvtc'
 
-export PATH="~/.local/bin/:~/.gem/ruby/2.1.0/bin:~/.cabal/bin/:~/bin/:~/.config/bin/:$PATH"
+export PATH="$HOME/.gem/ruby/2.0.0/bin:$HOME/.cabal/bin:$HOME/.local/bin:$HOME/bin/:$HOME/.config/bin/:$PATH"
 
 if [ "$DISPLAY" ]; then
 	export BROWSER='chrome'

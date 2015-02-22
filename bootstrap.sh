@@ -7,9 +7,9 @@ if [[ $(readlink -f $PWD) != $(readlink -f `dirname $0`) ]] ; then
 	exit 1
 fi
 
-REAL_EXCLUDE="${EXCLUDE// /\|}"
+REAL_EXCLUDE="${EXCLUDE// /|}"
 
-for F in $(find . -type f -printf '%P\n' | grep -v -E "^$REAL_EXCLUDE") ; do
+for F in $(find . -type f -print | grep -v -E "^./($REAL_EXCLUDE)") ; do
 	echo -n "$F"
 	SF="`readlink -m $F`" ; TF="$HOME/$F"
 	if rm -f "$TF" && mkdir -p "`dirname $TF`" && ln -s "$SF" "$TF"

@@ -10,6 +10,7 @@
 # session	optional	pam_gnome_keyring.so	auto_start
 #eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"
 #export GNOME_KEYRING_CONTROL SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_PID
+eval "$(ssh-agent)"
 
 # Keyboard
 setxkbmap sk-altgr alt                    \
@@ -36,3 +37,4 @@ SESSION=i3
 exec $SESSION > .config/xsession.log 2> .config/xsession_errors.log
 
 #kill $GNOME_KEYRING_PID
+ssh-agent -k

@@ -46,8 +46,9 @@
   XF86MonBrightnessDown
 
 # bind a nice menu with common system administration tasks to the ThinkVantage button
-"~/bin/fancy_menu.sh -t ~/bin/sys/system_menu.txt"
-  XF86Launch1
+# not right now, actually
+#"~/bin/fancy_menu.sh -t ~/bin/sys/system_menu.txt"
+#  XF86Launch1
 
 # --- leave the computer ---
 
@@ -57,3 +58,6 @@
 # --- applications ---
 "copyq toggle"
   Insert
+
+"chromium --incognito https://clipperz.is/beta/"
+  XF86Launch1
